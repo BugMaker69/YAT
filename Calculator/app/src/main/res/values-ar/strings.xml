@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">تسجيل دخول</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="password">كلمه المرور</string>
+    <string name="remember_me">تذكرني</string>
+    <string name="forget_password">هل نسيت كلمه المرور؟</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="sign_up">انشاء حساب</string>
+
+</resources>
