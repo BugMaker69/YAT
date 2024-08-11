@@ -8,5 +8,20 @@
     <string name="forget_password">هل نسيت كلمه المرور؟</string>
     <string name="login">تسجيل دخول</string>
     <string name="sign_up">انشاء حساب</string>
+    <string name="want_to_read">أريد أن أقرأ</string>
+    <string name="books">كتب</string>
+    <string name="reviews">مراجعات</string>
+    <string name="favorite">المفضلة</string>
+    <string name="search">بحث</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="settings">الإعدادات</string>
+    <string name="my_name">عمر السعدني</string>
+    <string name="review_clicked">تم النقر على المراجعة</string>
+    <string name="search_clicked">تم النقر على البحث</string>
+    <string name="profile_clicked">تم النقر على الملف الشخصي</string>
+    <string name="settings_clicked">تم النقر على الإعدادات</string>
+    <string name="fav_clicked">تم النقر على المفضلة</string>
+    <string name="notification">اشعارات</string>
+    <string name="notification_clicked">تم النقر على اشعارات</string>
 
 </resources>

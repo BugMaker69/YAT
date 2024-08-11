@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Calculator" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Library" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge" />
 
-    <style name="Theme.Calculator.btn_orange" parent="Theme.Calculator">
+    <style name="Theme.Library.btn_orange" parent="Theme.Library">
         <item name="android:textColor">@color/white</item>
         <item name="android:backgroundTint">@color/orange</item>
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="Theme.Calculator.btn_gray" parent="Theme.Calculator">
+    <style name="Theme.Library.btn_gray" parent="Theme.Library">
         <item name="android:textColor">@color/black</item>
         <item name="android:backgroundTint">@color/gray</item>
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="Theme.Calculator.btn_black" parent="Theme.Calculator">
+    <style name="Theme.Library.btn_black" parent="Theme.Library">
         <item name="android:textColor">@color/white</item>
         <item name="android:backgroundTint">@color/dark</item>
         <item name="android:textSize">22sp</item>
     </style>
 
-    <style name="Theme.Calculator.edt_login" parent="Theme.Calculator">
+    <style name="Theme.Library.edt_login" parent="Theme.Library">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/red</item>
