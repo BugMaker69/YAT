@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        android:background="?attr/colorPrimary">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:title="@string/meal"
+            android:paddingTop="@dimen/margin_16dp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+</layout>

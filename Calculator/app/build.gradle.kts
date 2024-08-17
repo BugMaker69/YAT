@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id ("androidx.navigation.safeargs.kotlin")
+
 }
 
 android {
@@ -52,6 +54,11 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -64,6 +71,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.recyclerview)
     implementation(libs.material)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

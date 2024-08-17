@@ -21,4 +21,19 @@
     <string name="fav_clicked">Fav Clicked</string>
     <string name="notification">Notification</string>
     <string name="notification_clicked">Notification Clicked</string>
+    <string name="login1">LOGIN</string>
+    <string name="name">Name</string>
+    <string name="password1">Password</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_login">Login</string>
+    <string name="burger">Burger</string>
+    <string name="steak">Steak</string>
+    <string name="pizza">Pizza</string>
+    <string name="pancakes">PanCakes</string>
+    <string name="shawerma">Shawerma</string>
+    <string name="waffles">Waffles</string>
+    <string name="browse">Browse</string>
+    <string name="my_cart">My Cart</string>
+    <string name="meal_plane">Meal Plane</string>
+    <string name="meal">Meal</string>
 </resources>

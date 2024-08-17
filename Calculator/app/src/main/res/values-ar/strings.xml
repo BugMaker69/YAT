@@ -23,5 +23,20 @@
     <string name="fav_clicked">تم النقر على المفضلة</string>
     <string name="notification">اشعارات</string>
     <string name="notification_clicked">تم النقر على اشعارات</string>
+    <string name="login1">تسجيل الدخول</string>
+    <string name="name">الاسم</string>
+    <string name="password1">كلمة المرور</string>
+    <string name="hello_blank_fragment">مرحبًا بك في الفراغ</string>
+    <string name="title_activity_login">تسجيل الدخول</string>
+    <string name="burger">برجر</string>
+    <string name="steak">ستيك</string>
+    <string name="pizza">بيتزا</string>
+    <string name="pancakes">فطائر</string>
+    <string name="shawerma">شاورما</string>
+    <string name="waffles">وافل</string>
+    <string name="browse">تصفح</string>
+    <string name="my_cart">عربة التسوق</string>
+    <string name="meal_plane">خطة الوجبة</string>
+    <string name="meal">وجبة</string>
 
 </resources>

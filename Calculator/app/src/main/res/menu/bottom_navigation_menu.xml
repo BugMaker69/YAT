@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main"
+        android:icon="@drawable/ic_search"
+        android:title="@string/browse"
+
+        />
+
+    <item
+        android:id="@+id/my_cart"
+        android:icon="@drawable/ic_shopping_cart"
+        android:title="@string/my_cart"
+        />
+
+    <item
+        android:id="@+id/plan"
+        android:icon="@drawable/ic_meal"
+        android:title="@string/meal_plane"
+        />
+
+</menu>
