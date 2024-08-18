@@ -1,17 +1,17 @@
 package com.example.library
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.calculator.R
 import com.example.calculator.databinding.FragmentMainScreenBinding
 
 
-class MainScreenFragment : Fragment() , MealAdapter.MealClickListener{
+class MainScreenFragment : Fragment(), MealAdapter.MealClickListener {
 
     lateinit var binding: FragmentMainScreenBinding
     var meals: MutableList<Meal> = mutableListOf()
@@ -22,7 +22,7 @@ class MainScreenFragment : Fragment() , MealAdapter.MealClickListener{
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentMainScreenBinding.inflate(inflater,container,false)
+        binding = FragmentMainScreenBinding.inflate(inflater, container, false)
 
         meals = mutableListOf<Meal>(
             Meal(getString(R.string.burger), R.drawable.burger),
@@ -33,15 +33,17 @@ class MainScreenFragment : Fragment() , MealAdapter.MealClickListener{
             Meal(getString(R.string.waffles), R.drawable.waffles),
         )
 
-        mealAdapter= MealAdapter(meals,this)
+        mealAdapter = MealAdapter(meals, this)
 
         binding.rvMeals.adapter = mealAdapter
-        binding.rvMeals.layoutManager = GridLayoutManager(binding.root.context,2)
+        binding.rvMeals.layoutManager = GridLayoutManager(binding.root.context, 2)
         return binding.root
 
     }
+
     override fun onMealClicked(meal: Meal) {
-
-
+        val action =
+            MainScreenFragmentDirections.actionMainScreenFragmentToMealDetailsFragment(meal)
+        findNavController().navigate(action)
     }
 }
