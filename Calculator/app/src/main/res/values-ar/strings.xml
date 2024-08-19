@@ -24,4 +24,10 @@
     <string name="notification">اشعارات</string>
     <string name="notification_clicked">تم النقر على اشعارات</string>
 
+    <string name="title">Title</string>
+    <string name="note">Note</string>
+    <string name="add_note">Add Note</string>
+    <string name="note_added">Note Added Successfully</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="edit_note">Edit Note</string>
 </resources>

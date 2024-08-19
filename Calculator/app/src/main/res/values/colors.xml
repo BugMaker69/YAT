@@ -13,4 +13,13 @@
     <color name="green">#009688</color>
     <color name="gray">#A6A5A5</color>
     <color name="dark">#5E5850</color>
+
+    <color name="mainColor">#1F2937</color>
+    <color name="textColor">#131313</color>
+    <color name="blue">#D9E8FC</color>
+    <color name="pink">#FFD8F4</color>
+    <color name="orange1">#FDE99D</color>
+    <color name="green1">#B0E9CA</color>
+    <color name="lightpink">#FFEADD</color>
+    <color name="grey">#ABABAB</color>
 </resources>
