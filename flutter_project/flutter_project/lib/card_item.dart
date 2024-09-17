@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/card_data.dart';
+import 'package:flutter_project/data/models/card_data.dart';
 
-class CardItem extends StatefulWidget {
-  CardItem({required this.data});
-  // const CardItem({super.key});
-
-  CardData data;
-
-  @override
-  State<CardItem> createState() => _CardItemState();
-}
-
-class _CardItemState extends State<CardItem> {
+class CardItem extends StatelessWidget {
+  CardItem({required this.data,required this.isChecked,required this.onChanged});
+  String data;
+  bool isChecked;
+  // CardItem({required this.data,required this.onChanged});
+  // CardData data;
+  Function (bool?)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -21,18 +17,15 @@ class _CardItemState extends State<CardItem> {
         child: Row(
           children: [
             Checkbox(
-              value: widget.data.isChecked,
-              onChanged: (bool? value) {
-                setState(() {
-                  widget.data.isChecked = value!;
-                });
-              },
+              value: isChecked,
+              onChanged: onChanged
             ),
             Text(
-              "${widget.data.data}",
+              "${data}",
               style: TextStyle(
+                fontFamily: 'Viga',
                 fontSize: 18,
-                decoration: widget.data.isChecked
+                decoration: isChecked
                     ? TextDecoration.lineThrough
                     : TextDecoration.none,
               ),

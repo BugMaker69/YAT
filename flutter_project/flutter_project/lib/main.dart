@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/data/models/card_data.dart';
 import 'package:flutter_project/main_page.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(CardDataAdapter());
+  await Hive.openBox('todoBox');
   runApp(const MyApp());
 }
 
