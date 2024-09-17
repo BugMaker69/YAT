@@ -6,7 +6,7 @@ import 'package:hive_flutter/adapters.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(CardDataAdapter());
-  await Hive.openBox('todoBox');
+  await Hive.openBox<CardData>('todoBox');
   runApp(const MyApp());
 }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/add_item.dart';
 import 'package:flutter_project/card_item.dart';
-import 'package:flutter_project/card_items_page.dart';
 import 'package:flutter_project/data/database.dart';
+import 'package:flutter_project/data/models/card_data.dart';
 import 'package:hive_flutter/adapters.dart';
 
 class MainScreen extends StatefulWidget {
@@ -13,25 +13,30 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  // final List todoList = [
-  //   ["Finish", true],
-  //   ["Do", false]
-  // ];
-
-  final _myBox = Hive.box('todoBox');
+  final _myBox = Hive.box<CardData>('todoBox');
   var todoDataBase = TodoDataBase();
+
+  List<CardData> todoList = [];
 
   @override
   void initState() {
-    if (_myBox.get('todoList') != null) {
-      todoDataBase.loadData();
+    // if (_myBox.values.isNotEmpty) {
+    if (_myBox.length > 0) {
+      todoList = todoDataBase.loadTodos();
     }
   }
 
   void onCheckboxChanged(bool? value, int index) {
     setState(() {
-      todoDataBase.todoList[index][1] = !todoDataBase.todoList[index][1];
-      todoDataBase.updateDatabase();
+      todoList[index] =
+          CardData(isChecked: !value!, data: todoList[index].data);
+      // _myBox.putAt(index, todoList[index]);
+
+      todoDataBase.updateTodo(index,todoList[index]);
+
+      
+      // todoDataBase.deleteTodo(index);
+      // todoDataBase.addTodo(todoList[index]);
     });
   }
 
@@ -39,8 +44,9 @@ class _MainScreenState extends State<MainScreen> {
 
   void saveNewTask() {
     setState(() {
-      todoDataBase.todoList.add([_controller.text, false]);
-      todoDataBase.updateDatabase();
+      CardData newTask = CardData(isChecked: false, data: _controller.text);
+      todoList.add(newTask);
+      todoDataBase.addTodo(newTask);
     });
 
     _controller.clear();
@@ -77,22 +83,22 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: ListView.separated(
         itemBuilder: (context, index) => Dismissible(
-          key: Key(todoDataBase.todoList[index][0]),
+          key: Key(todoList[index].data),
           direction: DismissDirection.endToStart,
           onDismissed: (direction) {
             setState(() {
-              todoDataBase.todoList.removeAt(index);
-              todoDataBase.updateDatabase();
+              todoList.removeAt(index);
+              todoDataBase.deleteTodo(index);
             });
           },
           child: CardItem(
-            data: todoDataBase.todoList[index][0],
-            isChecked: todoDataBase.todoList[index][1],
+            data: todoList[index].data,
+            isChecked: todoList[index].isChecked,
             onChanged: (value) =>
-                onCheckboxChanged(todoDataBase.todoList[index][1], index),
+                onCheckboxChanged(todoList[index].isChecked, index),
           ),
         ),
-        itemCount: todoDataBase.todoList.length,
+        itemCount: todoList.length,
         separatorBuilder: (context, index) => SizedBox(height: 16),
       ),
     );
