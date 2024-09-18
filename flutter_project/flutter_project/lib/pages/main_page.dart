@@ -32,9 +32,8 @@ class _MainScreenState extends State<MainScreen> {
           CardData(isChecked: !value!, data: todoList[index].data);
       // _myBox.putAt(index, todoList[index]);
 
-      todoDataBase.updateTodo(index,todoList[index]);
+      todoDataBase.updateTodo(index, todoList[index]);
 
-      
       // todoDataBase.deleteTodo(index);
       // todoDataBase.addTodo(todoList[index]);
     });
@@ -76,6 +75,26 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("ToDo App"),
+        actions: [
+          IconButton(
+            onPressed: () {
+                  Navigator.pushNamed(context, '/settingspage');
+                },
+            icon: Container(
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(.1),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                  Icons.settings,
+                  size: 24,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,

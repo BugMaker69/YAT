@@ -5,7 +5,7 @@ part 'card_data.g.dart';
 class CardData extends HiveObject {
   
   @HiveField(0)
-  final bool isChecked;
+  var isChecked;
 
 @HiveField(1)
   final String data;
