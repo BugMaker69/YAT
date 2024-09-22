@@ -1,18 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/data/models/contact_data.dart';
+import 'package:flutter_project/pages/add_edit_page.dart';
 
 class ContactItem extends StatelessWidget {
-  ContactItem({required this.contactItemData});
+  ContactItem({required this.contactItemData, required this.index});
   // const ContactItem({super.key});
 
   ContactItemData contactItemData;
+  int index;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(top: 8, start: 8, end: 8),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  AddEditScreen(contactItemData: contactItemData, index: index),
+            ),
+          );
+        },
         child: Card(
           color: Colors.amber,
           child: Container(

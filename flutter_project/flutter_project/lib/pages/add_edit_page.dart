@@ -4,7 +4,15 @@ import 'package:flutter_project/data/models/contact_data.dart';
 import 'package:hive_flutter/adapters.dart';
 
 class AddEditScreen extends StatelessWidget {
-  AddEditScreen({super.key});
+  ContactItemData? contactItemData;
+  int index;
+  AddEditScreen({this.index = -1, this.contactItemData}) {
+    if (contactDatabase != null) {
+      nameController.text = contactItemData!.name;
+      phoneController.text = contactItemData!.phoneNumber;
+      emailController.text = contactItemData!.email;
+    }
+  }
 
   final nameController = TextEditingController();
   final phoneController = TextEditingController();
@@ -52,8 +60,18 @@ class AddEditScreen extends StatelessWidget {
                       phoneNumber: phoneController.text,
                       email: emailController.text,
                     );
-                    contactList.add(newContact);
-                    contactDatabase.addContact(newContact);
+                    if (contactItemData == null && index == -1) {
+                      _myBox.add(newContact);
+                    } else {
+                      var updateContact = ContactItemData(
+                        name: newContact.name,
+                        phoneNumber: newContact.phoneNumber,
+                        email: newContact.email,
+                      );
+                      _myBox.putAt(index, updateContact);
+                    }
+                    // contactList.add(newContact);
+                    // contactDatabase.addContact(newContact);
                   }
                   nameController.clear();
                   phoneController.clear();
