@@ -42,13 +42,19 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
+        onPressed: () async {
+          final newContact = await Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => AddEditScreen(),
             ),
           );
+          if (newContact != null) {
+            setState(() {
+              contactList.add(newContact);
+              _myBox.add(newContact);
+            });
+          }
         },
         child: Icon(Icons.add),
       ),

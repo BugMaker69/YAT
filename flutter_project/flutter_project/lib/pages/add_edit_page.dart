@@ -7,7 +7,7 @@ class AddEditScreen extends StatelessWidget {
   ContactItemData? contactItemData;
   int index;
   AddEditScreen({this.index = -1, this.contactItemData}) {
-    if (contactDatabase != null) {
+    if (contactDatabase != null && index != -1) {
       nameController.text = contactItemData!.name;
       phoneController.text = contactItemData!.phoneNumber;
       emailController.text = contactItemData!.email;
@@ -61,7 +61,8 @@ class AddEditScreen extends StatelessWidget {
                       email: emailController.text,
                     );
                     if (contactItemData == null && index == -1) {
-                      _myBox.add(newContact);
+                      // _myBox.add(newContact);
+                      Navigator.pop(context, newContact);
                     } else {
                       var updateContact = ContactItemData(
                         name: newContact.name,
@@ -69,6 +70,7 @@ class AddEditScreen extends StatelessWidget {
                         email: newContact.email,
                       );
                       _myBox.putAt(index, updateContact);
+                      Navigator.pop(context, updateContact);
                     }
                     // contactList.add(newContact);
                     // contactDatabase.addContact(newContact);
@@ -76,7 +78,7 @@ class AddEditScreen extends StatelessWidget {
                   nameController.clear();
                   phoneController.clear();
                   emailController.clear();
-                  Navigator.pop(context);
+                  // Navigator.pop(context);
                 },
                 child: Text("Save Contact"),
               ),
