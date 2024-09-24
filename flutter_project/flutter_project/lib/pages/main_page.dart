@@ -5,35 +5,30 @@ import 'package:flutter_project/card_item.dart';
 import 'package:flutter_project/cubits/todo_cubit.dart';
 import 'package:flutter_project/data/models/card_data.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   MainScreen({super.key});
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
   final _controller = TextEditingController();
 
-  void saveNewTask() {
+  void saveNewTask(BuildContext context) {
     context.read<TodoCubit>().addTodo(_controller.text);
     _controller.clear();
     Navigator.pop(context);
   }
 
-  void cancelNewTask() {
+  void cancelNewTask(BuildContext context) {
     _controller.clear();
     Navigator.pop(context);
   }
 
-  void createNewTask() {
+  void createNewTask(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) {
         return AddItemDialog(
           controller: _controller,
-          onSave: saveNewTask,
-          onCancel: cancelNewTask,
+          onSave: () => saveNewTask(context),
+          onCancel: () => cancelNewTask(context),
         );
       },
     );
@@ -66,7 +61,7 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: createNewTask,
+        onPressed: () => createNewTask(context),
         child: Icon(Icons.add),
       ),
       body: BlocBuilder<TodoCubit, List<CardData>>(
